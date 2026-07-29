@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ayush Khangar | DevOps Engineer Portfolio</title>
+<meta name="description" content="DevOps Engineer specializing in Linux, AWS, Docker, CI/CD, DevSecOps, Monitoring, and Cloud Infrastructure." />
+<meta name="keywords" content="DevOps, DevSecOps, AWS, Linux, Docker, GitHub Actions, Python, Prometheus, Grafana, Loki, Cloud Engineer, CI/CD" />
+<meta name="author" content="Ayush Khangar" />
+<link rel="canonical" href="https://ayushkhangar.dev/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ayush Khangar | DevOps Engineer Portfolio" />
+<meta property="og:description" content="Building secure, automated, and scalable cloud infrastructure." />
+<meta property="og:url" content="https://ayushkhangar.dev/" />
+<meta property="og:image" content="https://ayushkhangar.dev/og-image.jpg" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ayush Khangar | DevOps Engineer Portfolio" />
+<meta name="twitter:description" content="Building secure, automated, and scalable cloud infrastructure." />
+<meta name="twitter:image" content="https://ayushkhangar.dev/og-image.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ayush Khangar",
+  "jobTitle": "DevOps Engineer",
+  "url": "https://ayushkhangar.dev",
+  "email": "khangarayush@gmail.com",
+  "sameAs": [
+    "https://github.com/ayushk18",
+    "https://www.linkedin.com/in/ayush-khangar-0301bb280/",
+    "https://medium.com/@khangarayush"
+  ],
+  "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressCountry": "IN" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+        colors: {
+          bg: '#0a0e17',
+          surface: '#0f1420',
+          primary: '#3B82F6',
+          secondary: '#8B5CF6',
+          accent: '#22D3EE',
+        },
+      },
+    },
+  }
+</script>
+
+<style>
+  :root { --primary:#3B82F6; --secondary:#8B5CF6; --accent:#22D3EE; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+  body { background:#0a0e17; color:#e2e8f0; font-family:'Inter',sans-serif; }
+  .font-mono { font-family:'JetBrains Mono',monospace; }
+
+  ::selection { background: rgba(59,130,246,0.35); color:#fff; }
+
+  ::-webkit-scrollbar { width:10px; }
+  ::-webkit-scrollbar-track { background:#0a0e17; }
+  ::-webkit-scrollbar-thumb { background:linear-gradient(#3B82F6,#8B5CF6); border-radius:8px; }
+
+  .glass {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .glass:hover { border-color: rgba(59,130,246,0.35); }
+
+  .gradient-text {
+    background: linear-gradient(90deg,#3B82F6,#8B5CF6,#22D3EE);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  .btn-primary {
+    background: linear-gradient(90deg,#3B82F6,#8B5CF6);
+    box-shadow: 0 0 0 0 rgba(59,130,246,0.5);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -8px rgba(59,130,246,0.55); }
+
+  .btn-outline {
+    border:1px solid rgba(255,255,255,0.15);
+    transition: all .25s ease;
+  }
+  .btn-outline:hover { border-color:#22D3EE; background:rgba(34,211,238,0.08); transform: translateY(-2px); }
+
+  /* reveal on scroll */
+  .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-scale { opacity:0; transform:scale(.94); transition:opacity .6s ease, transform .6s ease; }
+  .reveal-scale.visible { opacity:1; transform:scale(1); }
+
+  .stagger > * { transition-delay: calc(var(--i, 0) * 80ms); }
+
+  /* floating blobs */
+  .blob { position:absolute; border-radius:9999px; filter: blur(90px); opacity:.35; pointer-events:none; }
+  @keyframes floatY { 0%,100%{ transform:translateY(0) translateX(0);} 50%{ transform:translateY(-30px) translateX(20px);} }
+  @keyframes floatY2 { 0%,100%{ transform:translateY(0) translateX(0);} 50%{ transform:translateY(24px) translateX(-24px);} }
+  .blob-a { animation: floatY 9s ease-in-out infinite; }
+  .blob-b { animation: floatY2 11s ease-in-out infinite; }
+
+  /* particles */
+  .particle { position:absolute; border-radius:9999px; background:rgba(59,130,246,.5); }
+  @keyframes drift { from { transform: translateY(0); opacity:0;} 10%{opacity:1;} to { transform: translateY(-620px); opacity:0;} }
+
+  /* terminal caret */
+  .caret { display:inline-block; width:9px; height:1.1em; background:#22D3EE; margin-left:2px; vertical-align:-3px; animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity:0; } }
+
+  /* nav active underline */
+  .nav-link { position:relative; }
+  .nav-link::after {
+    content:''; position:absolute; left:0; bottom:-4px; width:0%; height:2px;
+    background:linear-gradient(90deg,#3B82F6,#22D3EE); transition:width .3s ease;
+  }
+  .nav-link:hover::after, .nav-link.active::after { width:100%; }
+  .nav-link.active { color:#fff; }
+
+  /* skill card */
+  .skill-card { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+  .skill-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -20px rgba(59,130,246,0.35); }
+
+  /* project card image placeholder pattern */
+  .project-thumb {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(59,130,246,.35), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(139,92,246,.35), transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(34,211,238,.25), transparent 40%),
+      #0d1320;
+  }
+
+  .timeline-line { background: linear-gradient(180deg, #3B82F6, #8B5CF6 50%, #22D3EE); }
+  .timeline-dot { box-shadow: 0 0 0 4px #0a0e17, 0 0 0 6px rgba(59,130,246,.4); }
+
+  input:focus, textarea:focus { outline:none; border-color:#3B82F6; box-shadow: 0 0 0 3px rgba(59,130,246,0.2); }
+
+  a, button { -webkit-tap-highlight-color: transparent; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid #22D3EE; outline-offset: 3px; border-radius:4px;
+  }
+
+  .mono-badge { font-family:'JetBrains Mono',monospace; letter-spacing:.02em; }
+
+  #progress-bar { transition: width .1s linear; }
+
+  @media (max-width: 480px){ .xs-hide { display:none; } }
+</style>
+</head>
+
+<body class="antialiased overflow-x-hidden">
+
+<!-- Skip link -->
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+<!-- Scroll progress -->
+<div class="fixed top-0 left-0 h-[3px] w-full z-[60] bg-white/5">
+  <div id="progress-bar" class="h-full w-0" style="background:linear-gradient(90deg,#3B82F6,#8B5CF6,#22D3EE)"></div>
+</div>
+
+<!-- Navbar -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-16">
+    <a href="#hero" class="font-mono font-bold text-lg tracking-tight text-white">
+      <span class="text-accent">$</span> ayush<span class="gradient-text">khangar</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+      <li><a href="#about" class="nav-link py-2">About</a></li>
+      <li><a href="#skills" class="nav-link py-2">Skills</a></li>
+      <li><a href="#projects" class="nav-link py-2">Projects</a></li>
+      <li><a href="#timeline" class="nav-link py-2">Timeline</a></li>
+      <li><a href="#contact" class="nav-link py-2">Contact</a></li>
+    </ul>
+    <a href="#contact" class="hidden md:inline-flex btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-lg">Let's Talk</a>
+    <button id="menu-btn" aria-label="Open menu" aria-expanded="false" class="md:hidden text-white p-2">
+      <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+  <!-- mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden glass mx-4 mt-1 rounded-2xl px-6 py-6 flex flex-col gap-4 text-slate-200">
+    <a href="#about" class="mobile-link py-1">About</a>
+    <a href="#skills" class="mobile-link py-1">Skills</a>
+    <a href="#projects" class="mobile-link py-1">Projects</a>
+    <a href="#timeline" class="mobile-link py-1">Timeline</a>
+    <a href="#contact" class="mobile-link py-1">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section id="hero" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+  <div class="blob blob-a w-[420px] h-[420px] bg-primary/40 -top-20 -left-32"></div>
+  <div class="blob blob-b w-[420px] h-[420px] bg-secondary/40 top-1/3 -right-32"></div>
+  <div class="blob w-[300px] h-[300px] bg-accent/30 bottom-0 left-1/3"></div>
+  <div id="particles" class="absolute inset-0 pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-14 items-center w-full">
+    <div>
+      <p class="reveal font-mono text-sm text-accent mb-4 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+        status: available for opportunities
+      </p>
+      <h1 class="reveal text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight text-white mb-6">
+        Hi, I'm <span class="gradient-text">Ayush Khangar</span>
+      </h1>
+      <div class="reveal font-mono text-lg sm:text-xl text-slate-300 mb-6 h-8">
+        <span id="typing"></span><span class="caret"></span>
+      </div>
+      <p class="reveal text-slate-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
+        Building secure, automated, and scalable cloud infrastructure.
+      </p>
+      <div class="reveal flex flex-wrap gap-4 mb-10">
+        <a href="https://example.com/resume.pdf" target="_blank" rel="noopener" class="btn-primary text-white font-semibold px-6 py-3 rounded-lg text-sm inline-flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0-4-4m4 4 4-4M4 20h16"/></svg>
+          Download Resume
+        </a>
+        <a href="#projects" class="btn-outline text-white font-semibold px-6 py-3 rounded-lg text-sm">View Projects</a>
+        <a href="https://github.com/ayushk18" target="_blank" rel="noopener" aria-label="GitHub" class="btn-outline text-white p-3 rounded-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.28 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.2.67.8.56C20.21 21.38 23.5 17.07 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/ayush-khangar-0301bb280/" target="_blank" rel="noopener" aria-label="LinkedIn" class="btn-outline text-white p-3 rounded-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+        </a>
+      </div>
+      <div class="reveal flex items-center gap-6 text-xs font-mono text-slate-500">
+        <span>Pune, Maharashtra, India</span>
+        <span class="hidden sm:inline">·</span>
+        <span class="hidden sm:inline">khangarayush@gmail.com</span>
+      </div>
+    </div>
+
+    <!-- terminal mock -->
+    <div class="reveal-scale">
+      <div class="glass rounded-2xl overflow-hidden shadow-2xl shadow-black/40 max-w-lg mx-auto">
+        <div class="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-white/[0.02]">
+          <span class="w-3 h-3 rounded-full bg-red-400/80"></span>
+          <span class="w-3 h-3 rounded-full bg-yellow-400/80"></span>
+          <span class="w-3 h-3 rounded-full bg-green-400/80"></span>
+          <span class="ml-3 text-xs font-mono text-slate-400">alex@prod-deploy — zsh</span>
+        </div>
+        <div class="p-5 font-mono text-[13px] leading-relaxed text-slate-300" id="terminal-body">
+          <p><span class="text-accent">$</span> whoami</p>
+          <p class="text-slate-400 mb-2">devops-engineer · cloud &amp; linux</p>
+          <p><span class="text-accent">$</span> ./deploy.sh --env production</p>
+          <p class="text-slate-500">▸ running security scan (gitleaks, trivy)…</p>
+          <p class="text-green-400">✔ 0 vulnerabilities found</p>
+          <p class="text-slate-500">▸ building container image…</p>
+          <p class="text-green-400">✔ image pushed to registry</p>
+          <p class="text-slate-500">▸ rolling out to EC2 fleet…</p>
+          <p class="text-green-400">✔ deployment successful — 99.98% uptime</p>
+          <p class="mt-2"><span class="text-accent">$</span> <span id="type2"></span><span class="caret"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" aria-label="Scroll to About" class="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-slate-500 hover:text-accent transition-colors">
+    <span class="text-[10px] font-mono tracking-widest">SCROLL</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-bounce"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg>
+  </a>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="relative py-28 px-5 md:px-8">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1.3fr] gap-14 items-start">
+    <div class="reveal">
+      <p class="font-mono text-xs text-accent mb-3 tracking-widest">01 / ABOUT</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">A little about me</h2>
+      <div class="flex flex-wrap gap-2">
+        <span class="mono-badge text-xs px-3 py-1.5 rounded-full glass text-slate-300">Linux</span>
+        <span class="mono-badge text-xs px-3 py-1.5 rounded-full glass text-slate-300">DevOps</span>
+        <span class="mono-badge text-xs px-3 py-1.5 rounded-full glass text-slate-300">Cloud</span>
+        <span class="mono-badge text-xs px-3 py-1.5 rounded-full glass text-slate-300">DevSecOps</span>
+        <span class="mono-badge text-xs px-3 py-1.5 rounded-full glass text-slate-300">Automation</span>
+        <span class="mono-badge text-xs px-3 py-1.5 rounded-full glass text-slate-300">Monitoring</span>
+        <span class="mono-badge text-xs px-3 py-1.5 rounded-full glass text-slate-300">Networking</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="text-slate-300 text-lg leading-relaxed mb-6">
+        I am a DevOps and Cloud enthusiast passionate about building secure, scalable, and automated infrastructure. I enjoy working with Linux, Docker, AWS, CI/CD pipelines, and DevSecOps practices to improve software delivery while maintaining security and reliability.
+      </p>
+      <p class="text-slate-400 leading-relaxed mb-8">
+        I continuously learn modern cloud technologies and love solving infrastructure and automation challenges — from hardening pipelines against secrets leakage to building dashboards that make a fleet's health legible at a glance.
+      </p>
+      <div class="glass rounded-xl p-4 text-center max-w-[180px]">
+        <p class="text-2xl font-extrabold gradient-text font-mono">∞</p>
+        <p class="text-xs text-slate-400 mt-1">Uptime Chasing</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="relative py-28 px-5 md:px-8 bg-white/[0.015]">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <p class="font-mono text-xs text-accent mb-3 tracking-widest">02 / SKILLS</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Tools I operate with</h2>
+      <p class="text-slate-400 mt-3 max-w-xl mx-auto">Grouped the way I'd organize a runbook — by the system each tool belongs to.</p>
+    </div>
+
+    <div id="skills-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="relative py-28 px-5 md:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <p class="font-mono text-xs text-accent mb-3 tracking-widest">03 / PROJECTS</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Things I'm working on currently</h2>
+    </div>
+    <div id="projects-grid" class="grid md:grid-cols-2 gap-8"></div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section id="timeline" class="relative py-28 px-5 md:px-8 bg-white/[0.015]">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <p class="font-mono text-xs text-accent mb-3 tracking-widest">04 / TIMELINE</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">How I got here</h2>
+    </div>
+    <div class="relative pl-10" id="timeline-list">
+      <div class="timeline-line absolute left-[7px] top-1 bottom-1 w-[2px] rounded-full"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="relative py-28 px-5 md:px-8 overflow-hidden">
+  <div class="blob w-[400px] h-[400px] bg-primary/25 top-0 right-0"></div>
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 relative">
+    <div class="reveal">
+      <p class="font-mono text-xs text-accent mb-3 tracking-widest">05 / CONTACT</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-5">Let's Build Something Together</h2>
+      <p class="text-slate-400 leading-relaxed mb-10 max-w-md">
+        I'm always interested in discussing DevOps, Cloud, Linux, automation, security, and exciting engineering opportunities. Feel free to reach out if you'd like to collaborate or just connect.
+      </p>
+      <div class="space-y-5">
+        <a href="mailto:khangarayush@gmail.com" class="flex items-center gap-4 group">
+          <span class="glass w-11 h-11 rounded-xl flex items-center justify-center text-accent group-hover:border-accent/50 transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          </span>
+          <span class="text-slate-300 group-hover:text-white transition-colors font-mono text-sm">khangarayush@gmail.com</span>
+        </a>
+        <a href="tel:+919325924457" class="flex items-center gap-4 group">
+          <span class="glass w-11 h-11 rounded-xl flex items-center justify-center text-accent group-hover:border-accent/50 transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          </span>
+          <span class="text-slate-300 group-hover:text-white transition-colors font-mono text-sm">+91 93259 24457</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <span class="glass w-11 h-11 rounded-xl flex items-center justify-center text-accent">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <span class="text-slate-300 font-mono text-sm">Pune, Maharashtra, India</span>
+        </div>
+      </div>
+      <div class="flex gap-3 mt-10">
+        <a href="https://github.com/ayushk18" target="_blank" rel="noopener" aria-label="GitHub" class="btn-outline text-white p-3 rounded-lg"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.28 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.2.67.8.56C20.21 21.38 23.5 17.07 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg></a>
+        <a href="https://www.linkedin.com/in/ayush-khangar-0301bb280/" target="_blank" rel="noopener" aria-label="LinkedIn" class="btn-outline text-white p-3 rounded-lg"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></a>
+        <a href="https://medium.com/@khangarayush" target="_blank" rel="noopener" aria-label="Medium" class="btn-outline text-white p-3 rounded-lg"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4.5c0-.28.11-.53.31-.71.19-.19.44-.29.72-.29H4v.02Zm.03-.02h.03-.03Zm0 0c.28 0 .54.1.73.29.2.18.31.43.31.71v14.04c0 .28-.11.53-.31.71-.19.19-.45.29-.73.29-.28 0-.53-.1-.72-.29a.99.99 0 0 1-.31-.71V5.48c0-.28.11-.53.31-.71.19-.19.44-.29.72-.29ZM12.5 6.2c-2.6 0-4.7 3.04-4.7 6.8s2.1 6.8 4.7 6.8 4.7-3.04 4.7-6.8-2.1-6.8-4.7-6.8Zm7.9.6c-.9 0-1.63 2.78-1.63 6.2 0 3.42.73 6.2 1.63 6.2s1.62-2.78 1.62-6.2c0-3.42-.72-6.2-1.62-6.2Z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="reveal glass rounded-2xl p-7 sm:p-9">
+      <form id="contact-form" action="https://formsubmit.co/khangarayush@gmail.com" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New portfolio contact form message">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
+
+        <div class="mb-5">
+          <label for="name" class="block text-sm text-slate-300 mb-2">Name</label>
+          <input id="name" name="name" type="text" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 transition-colors" placeholder="Your name">
+          <p class="err-name text-xs text-red-400 mt-1 hidden">Please enter your name.</p>
+        </div>
+        <div class="mb-5">
+          <label for="email" class="block text-sm text-slate-300 mb-2">Email</label>
+          <input id="email" name="email" type="email" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 transition-colors" placeholder="you@example.com">
+          <p class="err-email text-xs text-red-400 mt-1 hidden">Please enter a valid email.</p>
+        </div>
+        <div class="mb-6">
+          <label for="message" class="block text-sm text-slate-300 mb-2">Message</label>
+          <textarea id="message" name="message" required rows="5" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 transition-colors resize-none" placeholder="Tell me about your project or role..."></textarea>
+          <p class="err-message text-xs text-red-400 mt-1 hidden">Please enter a message.</p>
+        </div>
+        <button type="submit" class="btn-primary w-full text-white font-semibold py-3.5 rounded-lg text-sm">Send Message</button>
+        <p id="form-success" class="hidden text-sm text-green-400 mt-4 text-center">✔ Message sent — I'll get back to you soon.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative py-10 px-5 md:px-8 border-t border-white/10">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
+    <p class="text-slate-500 text-sm text-center sm:text-left">© 2026 Ayush Khangar. All rights reserved.<br class="sm:hidden"> <span class="text-slate-600">Designed &amp; built with React, TypeScript, Tailwind CSS &amp; Framer Motion — in spirit.</span></p>
+    <div class="flex items-center gap-4">
+      <a href="https://github.com/ayushk18" target="_blank" rel="noopener" aria-label="GitHub" class="text-slate-500 hover:text-accent transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.28 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.2.67.8.56C20.21 21.38 23.5 17.07 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg></a>
+      <a href="https://www.linkedin.com/in/ayush-khangar-0301bb280/" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-slate-500 hover:text-accent transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></a>
+      <a href="mailto:khangarayush@gmail.com" aria-label="Email" class="text-slate-500 hover:text-accent transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-50 btn-primary text-white w-11 h-11 rounded-full flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg>
+</button>
+
+<script>
+/* ---------- Data ---------- */
+const skillGroups = [
+  { title: "Programming", icon: "code", items: ["Python","Bash","YAML","JSON"] },
+  { title: "Linux", icon: "terminal", items: ["Ubuntu","Shell Scripting","Process Management","Systemd","Cron Jobs","Permissions","Networking"] },
+  { title: "Version Control", icon: "git", items: ["Git","GitHub","GitHub Actions"] },
+  { title: "DevOps", icon: "layers", items: ["Docker","Docker Compose","CI/CD","Nginx","Automation"] },
+  { title: "Cloud (AWS)", icon: "cloud", items: ["EC2","S3","VPC","Auto Scaling"] },
+  { title: "DevSecOps", icon: "shield", items: ["Gitleaks","Trivy","OWASP ZAP","SAST","DAST","Container Security"] },
+  { title: "Monitoring", icon: "activity", items: ["Prometheus","Grafana","Loki","Metrics","Logging"] },
+  { title: "Networking", icon: "network", items: ["TCP/IP","DNS","SSH","HTTP","HTTPS","Reverse Proxy"] },
+];
+
+const icons = {
+  code: '<path d="m8 16-4-4 4-4M16 8l4 4-4 4"/>',
+  terminal: '<path d="m4 17 6-6-6-6"/><path d="M12 19h8"/>',
+  git: '<circle cx="18" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="6" cy="6" r="2.5"/><path d="M6 8.5v7M8.5 6H14a3 3 0 0 1 3 3v4.5"/>',
+  layers: '<path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
+  cloud: '<path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.4 1.5A4 4 0 0 0 6 19h11.5Z"/>',
+  shield: '<path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/>',
+  activity: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+  network: '<circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v5m0 0-5.5 4M12 12.5l5.5 4"/>',
+};
+
+const projects = [
+  {
+    title: "Secure DevSecOps CI/CD Pipeline",
+    desc: "End-to-end pipeline automating code quality checks, security scanning, container image analysis, testing, and deployment with GitHub Actions.",
+    features: ["Secret detection with Gitleaks", "Container scanning with Trivy", "DAST via OWASP ZAP", "Metrics via Prometheus/Grafana/Loki"],
+    tech: ["Python","Docker","GitHub Actions","Gitleaks","Trivy","OWASP ZAP","Prometheus","Grafana","Loki","Nginx"],
+  },
+  {
+    title: "Cloud Infrastructure Monitoring Dashboard",
+    desc: "Centralized monitoring for Linux servers and containerized apps using Prometheus, Grafana, and Loki, with real-time dashboards and alerting.",
+    features: ["Real-time infra metrics", "Centralized log aggregation", "Custom alerting rules", "Node Exporter fleet coverage"],
+    tech: ["Linux","Docker","Prometheus","Grafana","Loki","Node Exporter","Git"],
+  },
+  {
+    title: "Project Three",
+    desc: "Reserved slot — add your next infrastructure or automation project here.",
+    features: ["Add a feature", "Add a feature", "Add a feature"],
+    tech: ["Add", "Tech", "Stack"],
+    placeholder: true,
+  },
+  {
+    title: "Project Four",
+    desc: "Reserved slot — add your next infrastructure or automation project here.",
+    features: ["Add a feature", "Add a feature", "Add a feature"],
+    tech: ["Add", "Tech", "Stack"],
+    placeholder: true,
+  },
+];
+
+const timelineItems = [
+  { tag: "School", title: "St. Xavier's High School", org: "Nagpur, Maharashtra, India", date: "" },
+  { tag: "College", title: "B.Tech — Yeshwantrao Chavan College of Engineering", org: "Nagpur, Maharashtra, India", date: "" },
+  { tag: "CDAC", title: "CDAC ACTS", org: "Pune, Maharashtra, India", date: "" },
+];
+
+/* ---------- Render Skills ---------- */
+const skillsGrid = document.getElementById('skills-grid');
+skillGroups.forEach((g, i) => {
+  const card = document.createElement('div');
+  card.className = 'skill-card reveal glass rounded-2xl p-6';
+  card.style.setProperty('--i', i % 3);
+  card.innerHTML = `
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg, rgba(59,130,246,.18), rgba(139,92,246,.18))">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icons[g.icon]}</svg>
+      </span>
+      <h3 class="text-white font-semibold">${g.title}</h3>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      ${g.items.map(it => `<span class="mono-badge text-[11px] px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300">${it}</span>`).join('')}
+    </div>
+  `;
+  skillsGrid.appendChild(card);
+});
+
+/* ---------- Render Projects ---------- */
+const projectsGrid = document.getElementById('projects-grid');
+projects.forEach((p, i) => {
+  const card = document.createElement('div');
+  card.className = 'reveal glass rounded-2xl overflow-hidden group';
+  card.innerHTML = `
+    <div class="project-thumb h-48 flex items-center justify-center relative overflow-hidden">
+      <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.4" class="opacity-60 group-hover:scale-110 transition-transform duration-500"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
+      ${p.placeholder ? '<span class="absolute top-3 right-3 mono-badge text-[10px] px-2 py-1 rounded-full bg-white/10 text-slate-400 border border-white/10">placeholder</span>' : ''}
+    </div>
+    <div class="p-6">
+      <h3 class="text-white font-bold text-lg mb-2">${p.title}</h3>
+      <p class="text-slate-400 text-sm leading-relaxed mb-4">${p.desc}</p>
+      <button class="details-toggle text-xs font-mono text-accent mb-3 flex items-center gap-1">
+        <span>show details</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="chev transition-transform"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <ul class="details-panel hidden text-slate-400 text-sm list-disc list-inside space-y-1 mb-4">
+        ${p.features.map(f => `<li>${f}</li>`).join('')}
+      </ul>
+      <div class="flex flex-wrap gap-2 mb-5">
+        ${p.tech.map(t => `<span class="mono-badge text-[10px] px-2 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400">${t}</span>`).join('')}
+      </div>
+    </div>
+  `;
+  projectsGrid.appendChild(card);
+
+  const toggle = card.querySelector('.details-toggle');
+  const panel = card.querySelector('.details-panel');
+  const label = toggle.querySelector('span');
+  const chev = toggle.querySelector('.chev');
+  toggle.addEventListener('click', () => {
+    const isHidden = panel.classList.toggle('hidden');
+    label.textContent = isHidden ? 'show details' : 'hide details';
+    chev.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+  });
+});
+
+/* ---------- Render Timeline ---------- */
+const timelineList = document.getElementById('timeline-list');
+timelineItems.forEach((t) => {
+  const item = document.createElement('div');
+  item.className = 'reveal relative pb-10 last:pb-0';
+  item.innerHTML = `
+    <span class="timeline-dot absolute -left-10 top-1 w-4 h-4 rounded-full bg-gradient-to-br from-primary to-accent"></span>
+    <div class="glass rounded-xl p-5">
+      <p class="mono-badge text-[11px] text-accent mb-1">${t.tag}${t.date ? ' · ' + t.date : ''}</p>
+      <h3 class="text-white font-semibold mb-1">${t.title}</h3>
+      ${t.org ? `<p class="text-slate-400 text-sm mb-2">${t.org}</p>` : ''}
+      ${t.details ? `<ul class="text-slate-400 text-sm list-disc list-inside space-y-1 mt-2">${t.details.map(d=>`<li>${d}</li>`).join('')}</ul>` : ''}
+    </div>
+  `;
+  timelineList.appendChild(item);
+});
+
+/* ---------- Typing effect ---------- */
+const phrases = ["DevOps Engineer", "DevSecOps Enthusiast", "Cloud & Linux Engineer"];
+const typingEl = document.getElementById('typing');
+let phraseI = 0, charI = 0, deleting = false;
+function typeLoop() {
+  const current = phrases[phraseI];
+  if (!deleting) {
+    charI++;
+    typingEl.textContent = current.slice(0, charI);
+    if (charI === current.length) { deleting = true; setTimeout(typeLoop, 1400); return; }
+  } else {
+    charI--;
+    typingEl.textContent = current.slice(0, charI);
+    if (charI === 0) { deleting = false; phraseI = (phraseI + 1) % phrases.length; }
+  }
+  setTimeout(typeLoop, deleting ? 35 : 65);
+}
+typeLoop();
+
+const type2El = document.getElementById('type2');
+const cmd2 = "tail -f infra.log";
+let c2 = 0;
+function type2Loop() {
+  if (c2 <= cmd2.length) { type2El.textContent = cmd2.slice(0, c2); c2++; setTimeout(type2Loop, 90); }
+}
+setTimeout(type2Loop, 1200);
+
+/* ---------- Particles ---------- */
+const particlesEl = document.getElementById('particles');
+for (let i = 0; i < 22; i++) {
+  const p = document.createElement('span');
+  const size = Math.random() * 3 + 1.5;
+  p.className = 'particle';
+  p.style.width = size + 'px';
+  p.style.height = size + 'px';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.bottom = '-10px';
+  p.style.animation = `drift ${8 + Math.random() * 10}s linear ${Math.random() * 10}s infinite`;
+  particlesEl.appendChild(p);
+}
+
+/* ---------- Reveal on scroll ---------- */
+const revealEls = document.querySelectorAll('.reveal, .reveal-scale');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+
+/* ---------- Navbar scroll state + active link ---------- */
+const navbar = document.getElementById('navbar');
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('main section[id]');
+const progressBar = document.getElementById('progress-bar');
+const backToTop = document.getElementById('back-to-top');
+
+function onScroll() {
+  const y = window.scrollY;
+  navbar.classList.toggle('glass', y > 20);
+  navbar.classList.toggle('shadow-lg', y > 20);
+  navbar.classList.toggle('shadow-black/20', y > 20);
+
+  const doc = document.documentElement;
+  const pct = (y / (doc.scrollHeight - doc.clientHeight)) * 100;
+  progressBar.style.width = pct + '%';
+
+  backToTop.style.opacity = y > 500 ? '1' : '0';
+  backToTop.style.pointerEvents = y > 500 ? 'auto' : 'none';
+
+  let current = '';
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
+  });
+  navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+}
+document.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ---------- Mobile menu ---------- */
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', () => {
+  const isOpen = !mobileMenu.classList.contains('hidden');
+  mobileMenu.classList.toggle('hidden');
+  menuBtn.setAttribute('aria-expanded', String(!isOpen));
+});
+document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+  mobileMenu.classList.add('hidden');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}));
+
+/* ---------- Contact form validation + FormSubmit AJAX ---------- */
+const form = document.getElementById('contact-form');
+const successMsg = document.getElementById('form-success');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const message = form.message.value.trim();
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  form.querySelector('.err-name').classList.toggle('hidden', !!name);
+  form.querySelector('.err-email').classList.toggle('hidden', emailOk);
+  form.querySelector('.err-message').classList.toggle('hidden', !!message);
+
+  if (!name || !emailOk || !message) return;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form),
+    });
+    if (res.ok) {
+      form.reset();
+      successMsg.classList.remove('hidden');
+      submitBtn.textContent = 'Send Message';
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  } catch (err) {
+    submitBtn.textContent = 'Send Message';
+    alert('Something went wrong sending your message — please email me directly at khangarayush@gmail.com');
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>
