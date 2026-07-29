@@ -1,4 +1,4 @@
-# Alex Carter — Portfolio
+# Ayush K — Portfolio
 
 A single self-contained `index.html` — no build step, no dependencies to install. Tailwind and fonts load from CDN; everything else (animations, form logic, section content) is plain JS/CSS in the file.
 
